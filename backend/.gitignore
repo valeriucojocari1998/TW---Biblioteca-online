@@ -1,0 +1,12 @@
+# Backend-specific .gitignore
+
+# Node modules
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# SQLite database files
+*.db
