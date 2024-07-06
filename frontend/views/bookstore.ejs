@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Librărie</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <%- include('partials/header') %>
+  <h1>Librărie</h1>
+  <ul>
+    <% books.forEach(function(book) { %>
+      <li><%= book.title %> by <%= book.author %> - <%= book.price %> Lei</li>
+    <% }); %>
+  </ul>
+  <%- include('partials/footer') %>
+</body>
+</html>
