@@ -1,20 +1,24 @@
-<header>
-  <nav>
-    <ul>
-      <li><a href="/">Acasă</a></li>
-      <li><a href="/about">Despre Noi</a></li>
-      <li><a href="/contact">Contact</a></li>
-      <li><a href="/bookstore">Librărie</a></li>
-      <li><a href="/cart">Coș
-      <li><a href="/checkout">Finalizare</a></li>
-      <% if (user) { %>
-      <li><a href="/orders">Comenzi</a></li>
-      <li><a href="/logout">Deconectare</a></li>
-      <% } else { %>
-      <li><a href="/login">Autentificare</a></li>
-      <li><a href="/register">Înregistrare</a></li>
-        <% } %>
-      </ul>
+<header class="header">
+  <div class="header-content">
+    <div style="display: flex; align-items: center; gap: 20px;">
+      <img width="40px" src="/resources/bookstore.png" alt="Site Logo" class="header-logo">
+      <h1 class="header-title">Online Bookstore</h1>
+    </div>
+    <nav class="header-nav">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/books">Books</a></li>
+            <li><a href="/cart">Cart</a></li>
+            <li><a href="/checkout">Checkout</a></li>
+            <% if (!user) { %>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Register</a></li>
+            <% } else { %>
+                <li><a href="/logout">Logout</a></li>
+            <% } %>
+        </ul>
     </nav>
-  </header>
-  
+  </div>
+</header>

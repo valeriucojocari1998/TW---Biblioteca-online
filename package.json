@@ -12,10 +12,11 @@
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
+    "nodemailer": "^6.6.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
+    "sass": "^1.77.6",
     "sequelize": "^6.6.2",
-    "sqlite3": "^5.0.2",
-    "nodemailer": "^6.6.0"
+    "sqlite3": "^5.0.2"
   }
 }

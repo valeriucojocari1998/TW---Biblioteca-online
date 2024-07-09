@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Your Name">
+  <meta name="keywords" content="bookstore, books, online library, reading">
+  <meta name="description" content="An online bookstore where you can find a wide variety of books">
+  <title>Online Bookstore</title>
+  <link rel="icon" href="public/resources/ico/favicon.ico">
+  <meta name="msapplication-TileColor" content="#00aaff">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      color: #333;
+    }
+    header {
+      background-color: #00aaff;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+    header h1 {
+      color: #fff;
+      font-size: 2rem;
+      margin: 0;
+    }
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 30px;
+      height: 30px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+    }
+    .menu-toggle span {
+      width: 100%;
+      height: 4px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all 0.3s linear;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+    nav ul li {
+      margin-right: 10px;
+    }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+    .main-content {
+      display: grid;
+      grid-template-areas: 
+        'section1 section1 section1 section1'
+        'section1 section1 section1 section1'
+        'section2 section2 section8 section8'
+        'section3 section6 section8 section8'
+        'section5 section6 section8 section8'
+        'section5 section4 section4 section7';
+      grid-gap: 10px;
+      padding: 20px;
+    }
+    .section {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .section h2 {
+      color: #00aaff;
+    }
+    .section1 { grid-area: section1; }
+    .section2 { grid-area: section2; }
+    .section3 { grid-area: section3; }
+    .section4 { grid-area: section4; }
+    .section5 { grid-area: section5; }
+    .section6 { grid-area: section6; }
+    .section7 { grid-area: section7; }
+    .section8 { grid-area: section8; }
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+    .top-link {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      background-color: rgba(0, 170, 255, 0.5);
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      border-radius: 50%;
+      transition: background-color 0.5s, color 0.5s;
+      cursor: pointer;
+    }
+    .top-link:hover {
+      background-color: rgba(0, 170, 255, 1);
+      color: #000;
+    }
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+      }
+      nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #00aaff;
+        padding: 0;
+      }
+      nav ul.show {
+        display: flex;
+      }
+      nav ul li {
+        text-align: center;
+        margin: 10px 0;
+      }
+      .main-content {
+        grid-template-areas: 
+          'section1'
+          'section2'
+          'section3'
+          'section4'
+          'section5'
+          'section6'
+          'section7'
+          'section8';
+        margin-bottom: 100px !important;
+      }
+    }
+  </style>
+  <script>
+    function toggleMenu() {
+      const nav = document.querySelector('nav ul');
+      nav.classList.toggle('show');
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Online Bookstore</h1>
+    <button class="menu-toggle" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav>
+      <ul>
+        <li><a href="#section1">Home</a></li>
+        <li><a href="#section2">Table</a></li>
+        <li><a href="#section3">Events</a></li>
+        <li><a href="#section4">Announcements</a></li>
+        <li><a href="#section5">Online Users</a></li>
+        <li><a href="#section6">User Data</a></li>
+        <li><a href="#section7">Site Info</a></li>
+        <li><a href="#section8">Misc</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="main-content" >
+    <div class="section section1">
+      <h2>Home</h2>
+      <p>Welcome to the online bookstore!</p>
+    </div>
+    <div class="section section2">
+      <h2>Table</h2>
+      <p>Table content goes here.</p>
+    </div>
+    <div class="section section3">
+      <h2>Events</h2>
+      <p>Events content goes here.</p>
+    </div>
+    <div class="section section4">
+      <h2>Announcements</h2>
+      <p>Announcements content goes here.</p>
+    </div>
+    <div class="section section5">
+      <h2>Online Users</h2>
+      <p>Online users content goes here.</p>
+    </div>
+    <div class="section section6">
+      <h2>User Data</h2>
+      <p>User data content goes here.</p>
+    </div>
+    <div class="section section7">
+      <h2>Site Info</h2>
+      <p>Site info content goes here.</p>
+    </div>
+    <div class="section section8">
+      <h2>Miscellaneous</h2>
+      <p>Miscellaneous content goes here.</p>
+    </div>
+  </main>
+  <footer>
+    <address>
+      <p>Contact us at: <a href="tel:+1234567890">+1234567890</a></p>
+      <p>Address: <a href="https://maps.google.com/?q=Facultatea+de+Matematica+si+Informatica">Facultatea de Matematica si Informatica</a></p>
+      <p>Email: <a href="mailto:info@bookstore.com">info@bookstore.com</a></p>
+      <p>Chat with us on <a href="skype:live:.cid.1234567890?chat">Skype</a> or <a href="https://wa.me/1234567890">WhatsApp</a></p>
+    </address>
+    <small>&copy; 2024 Online Bookstore. Created on <time datetime="2024-07-09">9 July 2024</time>.</small>
+    <a href="#top" class="top-link">Top</a>
+  </footer>
+</body>
+</html>

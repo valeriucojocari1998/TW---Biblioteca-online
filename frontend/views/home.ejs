@@ -1,14 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Acasă</title>
-  <link rel="stylesheet" href="/css/styles.css">
-</head>
-<body>
-  <%- include('partials/header') %>
-  <h1>Bine ați venit la Biblioteca Online</h1>
-  <p>Explorați colecția noastră variată de cărți.</p>
-  <%- include('partials/footer') %>
-</body>
+<html lang="ro">
+  <%- include('partials/head') %>
+
+  <body>
+    <%- include('partials/header') %>
+    <main class="main-content">
+      <header>
+        <nav class="nav">
+          <div class="wrapper">
+            <div class="menu">MENU</div>
+            <ul class="dropdown">
+              <li><a href="#section1">Home</a></li>
+              <li><a href="#section2">Table</a></li>
+              <li><a href="#section3">Events</a></li>
+              <li><a href="#section4">Announcements</a></li>
+              <li><a href="#section5">Online Users</a></li>
+              <li><a href="#section6">User Data</a></li>
+              <li><a href="#section7">Site Info</a></li>
+              <li><a href="#section8">Misc</a></li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <section class="intro-section">
+        <h2>Welcome to the Online Bookstore</h2>
+        <p>Find and buy your favorite books easily.</p>
+      </section>
+      <section class="featured-books">
+        <h3>Featured Books</h3>
+      </section>
+      <div class="grid-container">
+        <section id="section1" class="section1">
+          <h2>Welcome to Our Online Bookstore</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac vestibulum erat.</p>
+        </section>
+        <section id="section2" class="section2">
+          <h2>Table</h2>
+          <!-- Table content -->
+        </section>
+        <section id="section3" class="section3">
+          <h2>Events</h2>
+          <p>Placeholder for events</p>
+        </section>
+        <section id="section4" class="section4">
+          <h2>Announcements</h2>
+          <p>Placeholder for announcements</p>
+        </section>
+        <section id="section5" class="section5">
+          <h2>Online Users</h2>
+          <p>Placeholder for online users</p>
+        </section>
+        <section id="section6" class="section6">
+          <h2>User Data</h2>
+          <p>Placeholder for user data</p>
+        </section>
+        <section id="section7" class="section7">
+          <h2>Site Info</h2>
+          <p>Placeholder for site info</p>
+        </section>
+        <section id="section8" class="section8">
+          <h2>Miscellaneous</h2>
+          <p>Placeholder for miscellaneous content</p>
+        </section>
+      </div>
+    </main>
+    <%- include('partials/footer') %>
+  </body>
 </html>

@@ -1,20 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Înregistrare</title>
-  <link rel="stylesheet" href="/css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Register - Online Bookstore">
+    <meta name="keywords" content="Register, Online Bookstore">
+    <meta name="author" content="Your Name">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" href="/resources/bookstore.png" type="image/x-icon">
+    <title>Register - Online Bookstore</title>
 </head>
 <body>
-  <%- include('partials/header') %>
-  <h1>Înregistrare</h1>
-  <form action="/register" method="post">
-    <label for="username">Nume de utilizator:</label>
-    <input type="text" id="username" name="username" required>
-    <label for="password">Parolă:</label>
-    <input type="password" id="password" name="password" required>
-    <button type="submit">Înregistrare</button>
-  </form>
-  <%- include('partials/footer') %>
+    <%- include('partials/header') %>
+
+    <main class="main-content">
+        <section class="register-section">
+            <h2>Register</h2>
+            <form action="/register" method="POST">
+                <div>
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" id="name" required>
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email" required>
+                </div>
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password" required>
+                </div>
+                <button type="submit">Register</button>
+            </form>
+        </section>
+    </main>
+
+    <%- include('partials/footer') %>
 </body>
 </html>

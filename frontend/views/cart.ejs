@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Coș</title>
-  <link rel="stylesheet" href="/css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shopping Cart - Online Bookstore">
+    <meta name="keywords" content="Cart, Online Bookstore">
+    <meta name="author" content="Your Name">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" href="/resources/bookstore.png" type="image/x-icon">
+    <title>Shopping Cart - Online Bookstore</title>
 </head>
 <body>
-  <%- include('partials/header') %>
-  <h1>Coș de cumpărături</h1>
-  <p>Coșul tău de cumpărături este gol.</p>
-  <%- include('partials/footer') %>
+    <%- include('partials/header') %>
+
+    <main class="main-content">
+        <section class="cart-section">
+            <h2>Shopping Cart</h2>
+            <p>Your selected books are listed here.</p>
+        </section>
+    </main>
+
+    <%- include('partials/footer') %>
 </body>
 </html>
