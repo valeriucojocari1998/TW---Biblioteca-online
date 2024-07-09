@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchText = document.getElementById('search').value;
 
     const books = document.querySelectorAll('.books article');
+    let visibleCount = 0;
     
     books.forEach(book => {
       const bookName = book.querySelector('h3').textContent.toLowerCase();
@@ -38,10 +39,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (priceMatch && inStockMatch && authorMatch && categoriesMatch && creationDateMatch && searchMatch) {
         book.style.display = '';
+        visibleCount++;
       } else {
         book.style.display = 'none';
       }
     });
+
+    const noProductsMessage = document.getElementById('no-products-message');
+    noProductsMessage.style.display = visibleCount === 0 ? 'block' : 'none';
   }
 
   function resetFilters() {

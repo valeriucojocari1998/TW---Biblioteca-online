@@ -59,7 +59,7 @@ footer {
   color: #fff;
   text-align: center;
   padding: 10px;
-  position: fixed;
+  position: static;
   bottom: 0;
   width: 100%;
 }
@@ -244,4 +244,19 @@ footer {
   width: auto;
   height: 100%;
   transform: translate(-50%, -50%);
+}
+
+body.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.dark {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+body.blue {
+  background-color: #e0f7fa;
+  color: #01579b;
 }

@@ -5,20 +5,41 @@
       <h1 class="header-title">Online Bookstore</h1>
     </div>
     <nav class="header-nav">
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/contact">Contact</a></li>
-            <li><a href="/books">Books</a></li>
-            <li><a href="/cart">Cart</a></li>
-            <li><a href="/checkout">Checkout</a></li>
-            <% if (!user) { %>
-                <li><a href="/login">Login</a></li>
-                <li><a href="/register">Register</a></li>
-            <% } else { %>
-                <li><a href="/logout">Logout</a></li>
-            <% } %>
-        </ul>
+      <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/books">Books</a></li>
+          <li><a href="/cart">Cart</a></li>
+          <li><a href="/checkout">Checkout</a></li>
+          <% if (!user) { %>
+              <li><a href="/login">Login</a></li>
+              <li><a href="/register">Register</a></li>
+          <% } else { %>
+              <li><a href="/logout">Logout</a></li>
+          <% } %>
+      </ul>
     </nav>
+    <div style="width: 100%; display: flex; justify-content: end;">
+      <select id="theme-select">
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+        <option value="blue">Blue</option>
+      </select>
+    </div>
   </div>
 </header>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const themeSelect = document.getElementById('theme-select');
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.body.className = savedTheme;
+    themeSelect.value = savedTheme;
+
+    themeSelect.addEventListener('change', (e) => {
+      const theme = e.target.value;
+      document.body.className = theme;
+      localStorage.setItem('theme', theme);
+    });
+  });
+</script>
