@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <%- include('partials/head') %>
+  <body>
+    <%- include('partials/header') %>
+    <main class="main-content">
+      <section class="book-detail">
+        <h2><%= book.nume %></h2>
+        <p>Category: <%= book.categorie %></p>
+        <p><%= book.descriere %></p>
+        <img src="<%= book.imagine %>" alt="<%= book.nume %>">
+        <ul>
+          <li>Price: <%= book.pret %></li>
+          <li>In Stock: <%= book.in_stoc %></li>
+          <li>Creation Date: <time datetime="<%= book.data_creerii %>"><%= book.data_creerii %></time></li>
+          <li>Author: <%= book.autor %></li>
+          <li>Categories: <%= book.categorii %></li>
+        </ul>
+      </section>
+    </main>
+    <%- include('partials/footer') %>
+  </body>
+</html>

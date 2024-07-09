@@ -1,23 +1,121 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="About Us - Online Bookstore">
-    <meta name="keywords" content="About, Online Bookstore">
-    <meta name="author" content="Your Name">
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="icon" href="/resources/bookstore.png" type="image/x-icon">
-    <title>Store - Online Bookstore</title>
-</head>
-<body>
-  <%- include('partials/header') %>
-  <h1>Librărie</h1>
-  <ul>
-    <% books.forEach(function(book) { %>
-      <li><%= book.title %> by <%= book.author %> - <%= book.price %> Lei</li>
-    <% }); %>
-  </ul>
-  <%- include('partials/footer') %>
-</body>
+<html lang="ro">
+  <%- include('partials/head') %>
+  <body>
+    <%- include('partials/header') %>
+    <main class="main-content">
+      <header>
+        <nav class="nav">
+          <div class="nav-wrapper">
+            <div class="menu">MENU</div>
+            <ul class="dropdown">
+              <li><a href="#section1">Home</a></li>
+              <li><a href="#section2">Table</a></li>
+              <li><a href="#section3">Events</a></li>
+              <li><a href="#section4">Announcements</a></li>
+              <li><a href="#section5">Online Users</a></li>
+              <li><a href="#section6">User Data</a></li>
+              <li><a href="#section7">Site Info</a></li>
+              <li><a href="#section8">Misc</a></li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <section class="intro-section">
+        <h2>Welcome to the Online Bookstore</h2>
+        <p>Find and buy your favorite books easily.</p>
+      </section>
+      <section class="featured-books">
+        <h3>Featured Books</h3>
+      </section>
+      <div class="filters">
+        <label for="price-range">Price (up to):</label>
+        <input
+          type="number"
+          id="price-range"
+          name="price-range"
+          min="0"
+          max="100"
+          value="100"
+        />
+        <span id="price-range-value">100</span>
+
+        <label for="in-stock">In Stock:</label>
+        <input type="checkbox" id="in-stock" name="in-stock" />
+
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author" />
+
+        <label for="categories">Categories:</label>
+        <select id="categories" name="categories" multiple>
+          <option value="Fiction">Fiction</option>
+          <option value="Non-Fiction">Non-Fiction</option>
+          <option value="Science">Science</option>
+          <option value="Technology">Technology</option>
+          <option value="Art">Art</option>
+          <option value="History">History</option>
+          <option value="Literature">Literature</option>
+          <option value="Biography">Biography</option>
+          <option value="Mystery">Mystery</option>
+          <option value="Romance">Romance</option>
+          <option value="Thriller">Thriller</option>
+          <option value="Horror">Horror</option>
+          <option value="Adventure">Adventure</option>
+          <option value="Fantasy">Fantasy</option>
+          <option value="Drama">Drama</option>
+          <option value="Poetry">Poetry</option>
+          <option value="Science Fiction">Science Fiction</option>
+          <option value="Cooking">Cooking</option>
+          <option value="Travel">Travel</option>
+          <option value="Health">Health</option>
+        </select>
+
+        <label for="creation-date">Creation Date:</label>
+        <input type="date" id="creation-date" name="creation-date" />
+
+        <label for="search">Search:</label>
+        <input type="text" id="search" name="search" />
+
+        <button id="filter-btn">Filter</button>
+        <button id="reset-btn">Reset</button>
+      </div>
+      <section class="books">
+        <% books.forEach(function(book) { %>
+        <article
+          id="article_<%= book.id %>"
+          class="<%= book.categorii.replace(/\s/g, '') %>"
+        >
+          <h3><%= book.nume %></h3>
+          <p><strong>Category:</strong> <%= book.categorii %></p>
+          <p><strong>Description:</strong> <%= book.descriere %></p>
+          <img src="<%= book.imagine %>" alt="<%= book.nume %>" />
+          <ul>
+            <li><strong data-type="price">Price:</strong> <%= book.pret %></li>
+            <li>
+              <strong data-type="author">Author:</strong> <%= book.autor %>
+            </li>
+            <li>
+              <strong data-type="inStock">In Stock:</strong> <%= book.in_stoc ?
+              'Yes' : 'No' %>
+            </li>
+            <li>
+              <strong data-type="creationDate">Creation Date:</strong>
+              <time datetime="<%= book.data_creerii %>"
+                ><%= new Date(book.data_creerii).toLocaleDateString('ro-RO', {
+                weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+                }) %></time
+              >
+            </li>
+            <li>
+              <strong data-type="categories">Categories:</strong> <%=
+              book.categorii ? book.categorii.split(',').join(', ') : 'N/A' %>
+            </li>
+          </ul>
+          <a href="/book/<%= book.id %>">View Details</a>
+        </article>
+        <% }); %>
+      </section>
+    </main>
+    <%- include('partials/footer') %>
+  </body>
 </html>

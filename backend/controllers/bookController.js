@@ -1,11 +1,24 @@
-const bookModel = require('../models/Book');
+const db = require('../database');
 
 exports.getAllBooks = (req, res) => {
-  bookModel.getAllBooks((err, books) => {
+  const query = "SELECT * FROM books";
+  db.all(query, [], (err, rows) => {
     if (err) {
-      res.status(500).send('Error retrieving books');
-    } else {
-      res.render('bookstore', { books });
+      res.status(400).json({ "error": err.message });
+      return;
     }
+    res.render('bookstore', { books: rows });
+  });
+};
+
+exports.getBookById = (req, res) => {
+  const bookId = req.params.id;
+  const query = "SELECT * FROM books WHERE id = ?";
+  db.get(query, [bookId], (err, row) => {
+    if (err) {
+      res.status(400).json({ "error": err.message });
+      return;
+    }
+    res.render('book', { book: row });
   });
 };

@@ -79,12 +79,17 @@ app.get('/contact', (req, res) => res.render('contact'));
 app.get('/cart', (req, res) => res.render('cart'));
 app.get('/checkout', (req, res) => res.render('checkout'));
 app.get('/books', bookController.getAllBooks);
+app.get('/book/:id', bookController.getBookById);
 app.get('/register', (req, res) => res.render('register'));
 app.get('/login', (req, res) => res.render('login'));
 app.get('/orders', isAuthenticated, orderController.getOrders);
 app.post('/register', userController.registerUser);
 app.post('/login', userController.loginUser);
 app.get('/logout', userController.logoutUser);
+
+app.get('/js/filters.js', (req, res) => {
+  res.sendFile(path.join(__dirname, 'frontend', 'public', 'js', 'filters.js'));
+});
 
 // Initialize the database
 require('./backend/database');

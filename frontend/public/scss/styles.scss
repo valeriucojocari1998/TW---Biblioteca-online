@@ -110,11 +110,138 @@ footer {
 }
 
 .nav-wrapper {
-    width: fit-content;
+  width: fit-content;
 }
 
 .nav-wrapper:hover {
   .dropdown {
     display: block !important;
   }
+}
+
+/* Duotone Effect */
+.duotone {
+  background: linear-gradient(to right, #00aaff, #ffaa00);
+  color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+/* Reflexion Effect */
+.reflexion {
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Column Text */
+.columns {
+  column-count: 2;
+  column-gap: 20px;
+  column-rule: 1px solid #ccc;
+}
+
+@media (max-width: 768px) {
+  .columns {
+    column-count: 1;
+  }
+}
+
+/* Selection Effect */
+::selection {
+  background: #00aaff;
+  color: #fff;
+}
+
+/* Scrolling Text */
+.scroll-text .scrolling {
+  animation: scroll 10s linear infinite;
+  white-space: nowrap;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* Background Change */
+.background-change {
+  background-attachment: fixed;
+  animation: changeBackground 10s infinite;
+}
+
+/* Responsive Table */
+.responsive-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.responsive-table th,
+.responsive-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .responsive-table {
+    overflow-x: auto;
+  }
+}
+
+/* Transposed Table */
+.transposed-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.transposed-table th,
+.transposed-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .transposed-table table {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .transposed-table th,
+  .transposed-table td {
+    display: block;
+    width: 100%;
+  }
+}
+
+/* Styled Horizontal Rule */
+.styled-hr hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(to right, #00aaff, #ffaa00);
+  margin: 20px 0;
+}
+
+/* Background Video */
+.video-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 300px;
+}
+
+.video-container video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: auto;
+  height: 100%;
+  transform: translate(-50%, -50%);
 }
