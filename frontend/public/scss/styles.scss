@@ -1,18 +1,52 @@
-/* styles.scss */
+/* Define color variables */
+$base-color: #00aaff; /* Main blue color */
+$complementary-color: #ff9933; /* Orange */
+$analogous-color-1: #33aaff; /* Light Blue */
+$analogous-color-2: #005599; /* Dark Blue */
+$triadic-color: #9933ff; /* Purple */
+$text-color: #333;
+$background-color: #f0f0f0;
+$border-color: #ccc;
+$highlight-color: #ffaa00;
+$light-background: #ffffff;
+$dark-background: #333333;
+$light-text: #000000;
+$dark-text: #ffffff;
+$blue-background: #e0f7fa;
+$blue-text: #01579b;
+
+/* Usage of variables */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
-  color: #333;
+  background-color: $background-color;
+  color: $text-color;
+}
+
+body::before {
+  content: "Valeriu Cojocari";
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.3);
+  text-align: center;
+  z-index: -1;
 }
 
 .header {
-  background-color: #00aaff;
+  background-color: $base-color;
   padding: 20px;
   text-align: center;
+  transition: box-shadow 0.3s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
 }
 
 .header-title {
-  color: #fff;
+  color: $light-text;
   font-size: 24px;
   margin: 0;
 }
@@ -25,11 +59,16 @@ body {
 .header-nav ul li {
   display: inline;
   margin-right: 10px;
-}
 
-.header-nav ul li a {
-  color: #fff;
-  text-decoration: none;
+  a {
+    color: $light-text;
+    text-decoration: none;
+    transition: box-shadow 1s ease-in-out;
+
+    &:hover {
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+    }
+  }
 }
 
 .main-content {
@@ -43,7 +82,7 @@ body {
 .checkout-section,
 .login-section,
 .register-section {
-  background-color: #fff;
+  background-color: $light-background;
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 5px;
@@ -51,12 +90,12 @@ body {
 }
 
 h2 {
-  color: #00aaff;
+  color: $base-color;
 }
 
 footer {
-  background-color: #333;
-  color: #fff;
+  background-color: $dark-background;
+  color: $light-text;
   text-align: center;
   padding: 10px;
   position: static;
@@ -70,12 +109,19 @@ footer {
 
   .menu {
     cursor: pointer;
-    background-color: #00aaff;
-    color: #fff;
+    background-color: $base-color;
+    color: $light-text;
     padding: 10px;
     border-radius: 5px;
     text-align: center;
     width: 100px;
+    display: none; /* Hide by default */
+  }
+  .svg-arrow {
+    display: none;
+  }
+  ul {
+    display: flex;
   }
 
   .dropdown {
@@ -84,7 +130,7 @@ footer {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #00aaff;
+    background-color: $base-color;
     border-radius: 5px;
     padding: 0;
     display: none;
@@ -95,14 +141,15 @@ footer {
       margin: 5px 0;
 
       a {
-        color: #fff;
+        color: $light-text;
         text-decoration: none;
         display: block;
         padding: 5px;
-        transition: background-color 0.3s;
+        transition: background-color 0.3s, box-shadow 0.3s ease-in-out;
 
         &:hover {
-          background-color: #0077cc;
+          background-color: $analogous-color-2;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
       }
     }
@@ -121,8 +168,8 @@ footer {
 
 /* Duotone Effect */
 .duotone {
-  background: linear-gradient(to right, #00aaff, #ffaa00);
-  color: #fff;
+  background: linear-gradient(to right, $base-color, $highlight-color);
+  color: $light-text;
   padding: 20px;
   border-radius: 5px;
 }
@@ -131,7 +178,7 @@ footer {
 .reflexion {
   text-align: center;
   padding: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid $border-color;
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -140,7 +187,7 @@ footer {
 .columns {
   column-count: 2;
   column-gap: 20px;
-  column-rule: 1px solid #ccc;
+  column-rule: 1px solid $border-color;
 }
 
 @media (max-width: 768px) {
@@ -151,8 +198,8 @@ footer {
 
 /* Selection Effect */
 ::selection {
-  background: #00aaff;
-  color: #fff;
+  background: $base-color;
+  color: $light-text;
 }
 
 /* Scrolling Text */
@@ -176,6 +223,16 @@ footer {
   animation: changeBackground 10s infinite;
 }
 
+@keyframes changeBackground {
+  0%,
+  100% {
+    background-color: $base-color;
+  }
+  50% {
+    background-color: $highlight-color;
+  }
+}
+
 /* Responsive Table */
 .responsive-table table {
   width: 100%;
@@ -184,7 +241,7 @@ footer {
 
 .responsive-table th,
 .responsive-table td {
-  border: 1px solid #ccc;
+  border: 1px solid $border-color;
   padding: 10px;
   text-align: left;
 }
@@ -203,7 +260,7 @@ footer {
 
 .transposed-table th,
 .transposed-table td {
-  border: 1px solid #ccc;
+  border: 1px solid $border-color;
   padding: 10px;
   text-align: left;
 }
@@ -225,7 +282,7 @@ footer {
 .styled-hr hr {
   border: none;
   height: 2px;
-  background: linear-gradient(to right, #00aaff, #ffaa00);
+  background: linear-gradient(to right, $base-color, $highlight-color);
   margin: 20px 0;
 }
 
@@ -247,16 +304,85 @@ footer {
 }
 
 body.light {
-  background-color: #ffffff;
-  color: #000000;
+  background-color: $light-background;
+  color: $light-text;
 }
 
 body.dark {
-  background-color: #333333;
-  color: #ffffff;
+  background-color: $dark-background;
+  color: $dark-text;
+  .card {
+    color: $light-text;
+  }
 }
 
 body.blue {
-  background-color: #e0f7fa;
-  color: #01579b;
+  background-color: $blue-background;
+  color: $blue-text;
+}
+
+/* Card styles */
+.card {
+  border: 1px solid $border-color;
+  background-color: $light-background;
+  width: fit-content;
+  min-width: 200px;
+  height: fit-content;
+  min-height: 200px;
+  padding: 10px;
+  margin: 0 10px 10px 0;
+  border-radius: 5px;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .header-nav ul {
+    display: none;
+  }
+
+  .nav .menu {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-nav ul.show {
+    display: block;
+    position: absolute;
+    top: 60px;
+    background-color: $base-color;
+    width: 100%;
+    text-align: left;
+    padding: 10px 0;
+
+    li {
+      display: block;
+      margin: 10px 0;
+
+      a {
+        display: block;
+        padding: 10px;
+      }
+      &:hover {
+        .svg-arrow {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+iframe {
+  text-decoration: none;
+  color: inherit;
+}
+
+.dropdown-menu-1 {
+  display: none;
+}
+
+.dropdown-header1:hover {
+  .dropdown-menu-1 {
+    display: flex;
+  }
 }

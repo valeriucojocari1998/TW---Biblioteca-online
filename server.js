@@ -58,21 +58,18 @@ function compileazaScss(caleScss, caleCss) {
   fs.writeFileSync(cale_abs_css, result.css);
 }
 
-// Compile all SCSS files initially
 fs.readdirSync(obGlobal.folderScss).forEach(file => {
   if (file.endsWith('.scss')) {
     compileazaScss(file);
   }
 });
 
-// Watch SCSS files for changes
 fs.watch(obGlobal.folderScss, (eventType, filename) => {
   if (filename.endsWith('.scss')) {
     compileazaScss(filename);
   }
 });
 
-// Routes
 app.get('/', (req, res) => res.render('home'));
 app.get('/about', (req, res) => res.render('about'));
 app.get('/contact', (req, res) => res.render('contact'));
@@ -91,7 +88,6 @@ app.get('/js/filters.js', (req, res) => {
   res.sendFile(path.join(__dirname, 'frontend', 'public', 'js', 'filters.js'));
 });
 
-// Initialize the database
 require('./backend/database');
 
 // Start the server

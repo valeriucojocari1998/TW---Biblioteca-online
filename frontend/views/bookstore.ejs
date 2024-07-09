@@ -4,71 +4,58 @@
   <body>
     <%- include('partials/header') %>
     <main class="main-content">
-      <header>
-        <nav class="nav">
-          <div class="nav-wrapper">
-            <div class="menu">MENU</div>
-            <ul class="dropdown">
-              <li><a href="#section1">Home</a></li>
-              <li><a href="#section2">Table</a></li>
-              <li><a href="#section3">Events</a></li>
-              <li><a href="#section4">Announcements</a></li>
-              <li><a href="#section5">Online Users</a></li>
-              <li><a href="#section6">User Data</a></li>
-              <li><a href="#section7">Site Info</a></li>
-              <li><a href="#section8">Misc</a></li>
-            </ul>
-          </div>
-        </nav>
-      </header>
-      <section class="intro-section">
-        <h2>Welcome to the Online Bookstore</h2>
-        <p>Find and buy your favorite books easily.</p>
-      </section>
-      <section class="featured-books">
-        <h3>Featured Books</h3>
-      </section>
-      <div class="filters">
-        <label for="price-range">Price (up to):</label>
-        <input
-          type="number"
-          id="price-range"
-          name="price-range"
-          min="0"
-          max="100"
-          value="100"
-        />
-        <span id="price-range-value">100</span>
+      <div class="filters" style="display: flex; height: 20px; gap: 15px">
+        <div style="display: flex;">
+          <label for="price-range">Price (up to):</label>
+          <span>0</span>
+          <input
+            type="range"
+            id="price-range"
+            name="price-range"
+            min="0"
+            max="100"
+            value="100"
+            oninput="this.nextElementSibling.value = this.value"
+          />
+          <output>100</output>
+        </div>
 
-        <label for="in-stock">In Stock:</label>
-        <input type="checkbox" id="in-stock" name="in-stock" />
+        <div>
+          <label for="in-stock">In Stock:</label>
+          <input type="checkbox" id="in-stock" name="in-stock" />
+        </div>
+        <div>
+          <label for="author">Author:</label>
+          <input type="text" id="author" name="author" />
+        </div>
+        <div style="display: flex; align-items: start;">
+          <label for="categories">Categories:</label>
+          <select id="categories" name="categories" style="z-index: 100;" class="filter-category">
+            <option value="" selected></option>
+            <option value="Fiction">Fiction</option>
+            <option value="Non-Fiction">Non-Fiction</option>
+            <option value="Science">Science</option>
+            <option value="Technology">Technology</option>
+            <option value="Art">Art</option>
+            <option value="History">History</option>
+            <option value="Literature">Literature</option>
+            <option value="Biography">Biography</option>
+            <option value="Mystery">Mystery</option>
+            <option value="Romance">Romance</option>
+            <option value="Thriller">Thriller</option>
+            <option value="Horror">Horror</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="Drama">Drama</option>
+            <option value="Poetry">Poetry</option>
+            <option value="Science Fiction">Science Fiction</option>
+            <option value="Cooking">Cooking</option>
+            <option value="Travel">Travel</option>
+            <option value="Health">Health</option>
+          </select>
+        </div>
 
-        <label for="author">Author:</label>
-        <input type="text" id="author" name="author" />
 
-        <label for="categories">Categories:</label>
-        <select id="categories" name="categories" multiple>
-          <option value="Fiction">Fiction</option>
-          <option value="Non-Fiction">Non-Fiction</option>
-          <option value="Science">Science</option>
-          <option value="Technology">Technology</option>
-          <option value="Art">Art</option>
-          <option value="History">History</option>
-          <option value="Literature">Literature</option>
-          <option value="Biography">Biography</option>
-          <option value="Mystery">Mystery</option>
-          <option value="Romance">Romance</option>
-          <option value="Thriller">Thriller</option>
-          <option value="Horror">Horror</option>
-          <option value="Adventure">Adventure</option>
-          <option value="Fantasy">Fantasy</option>
-          <option value="Drama">Drama</option>
-          <option value="Poetry">Poetry</option>
-          <option value="Science Fiction">Science Fiction</option>
-          <option value="Cooking">Cooking</option>
-          <option value="Travel">Travel</option>
-          <option value="Health">Health</option>
-        </select>
 
         <label for="creation-date">Creation Date:</label>
         <input type="date" id="creation-date" name="creation-date" />
@@ -76,20 +63,39 @@
         <label for="search">Search:</label>
         <input type="text" id="search" name="search" />
 
+        <div style="display: flex; align-items: start;">
+          <label for="orderField">Field:</label>
+          <select id="orderField" name="orderField" style="z-index: 100;" class="filter-category">
+            <option value="" selected></option>
+            <option value="price">Price</option>
+            <option value="name">Name</option>
+            <option value="author">Author</option>
+          </select>
+        </div>
+
+        <div style="display: flex; align-items: start;">
+          <label for="orderDirection">Order:</label>
+          <select id="orderDirection" name="orderDirection" style="z-index: 100;" class="filter-category">
+            <option value="" selected></option>
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
+          </select>
+        </div>
+
         <button id="filter-btn">Filter</button>
         <button id="reset-btn">Reset</button>
       </div>
       <div id="no-products-message" style="display: none;">No products match your filters.</div>
-      <section class="books">
+      <section class="books" style="display: flex; margin-top: 20px; flex-wrap: wrap;">
         <% books.forEach(function(book) { %>
         <article
           id="article_<%= book.id %>"
-          class="<%= book.categorii.replace(/\s/g, '') %>"
+          class="<%= book.categorii.replace(/\s/g, '') %> card"
         >
           <h3><%= book.nume %></h3>
           <p><strong>Category:</strong> <%= book.categorii %></p>
           <p><strong>Description:</strong> <%= book.descriere %></p>
-          <img src="<%= book.imagine %>" alt="<%= book.nume %>" />
+          <img width="50px" src="<%= book.image %>" alt="<%= book.nume %>">
           <ul>
             <li><strong data-type="price">Price:</strong> <%= book.pret %></li>
             <li>
@@ -116,7 +122,38 @@
         </article>
         <% }); %>
       </section>
+      <div style="display: flex; align-items: start; gap:5px">
+        <div style="display: flex; align-items: start;">
+          <label for="page">Page:</label>
+          <input id="page" name="page" type="number" value="1" style="width: 40px;" min="1" oninput="validatePage()">
+          <span id="error-message" style="color: red; display: none;">Value must be 1 or greater.</span>
+        </div>
+        <div style="display: flex; align-items: start;">
+          <label for="pagination">Items:</label>
+          <select id="pagination" name="pagination" (onchange)="filterBooks()">
+            <option value="1">1</option>
+            <option value="5">5</option>
+            <option value="100" selected>100</option>
+          </select>
+        </div>
+      </div>
+
+
     </main>
     <%- include('partials/footer') %>
   </body>
+  <script>
+    function validatePage() {
+      const pageInput = document.getElementById('page');
+      const errorMessage = document.getElementById('error-message');
+      
+      if (pageInput.value < 1) {
+        errorMessage.style.display = 'block';
+        pageInput.setCustomValidity('Value must be 1 or greater.');
+      } else {
+        errorMessage.style.display = 'none';
+        pageInput.setCustomValidity('');
+      }
+    }
+  </script>
 </html>

@@ -1,26 +1,79 @@
-<header class="header">
+<header class="header" style="z-index: 10000;">
   <div class="header-content">
     <div style="display: flex; align-items: center; gap: 20px;">
       <img width="40px" src="/resources/bookstore.png" alt="Site Logo" class="header-logo">
       <h1 class="header-title">Online Bookstore</h1>
     </div>
     <nav class="header-nav">
-      <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/contact">Contact</a></li>
-          <li><a href="/books">Books</a></li>
-          <li><a href="/cart">Cart</a></li>
-          <li><a href="/checkout">Checkout</a></li>
+      <div class="nav">
+        <div class="menu">☰</div>
+        <ul>
+          <li style="display: flex; align-items: center; justify-content: center; gap: 3px;">
+            <div class="svg-arrow" style="width: 7px;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
+                <path style="fill:#232326"
+                  d="m17.5 5.999-.707.707 5.293 5.293H1v1h21.086l-5.294 5.295.707.707L24 12.499l-6.5-6.5z"
+                  data-name="Right" />
+              </svg>
+            </div>
+            <a href="/">Home</a>
+          </li>
+          <li style="display: flex; align-items: center; justify-content: center; gap: 3px;">
+            <div class="svg-arrow" style="width: 7px;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
+                <path style="fill:#232326"
+                  d="m17.5 5.999-.707.707 5.293 5.293H1v1h21.086l-5.294 5.295.707.707L24 12.499l-6.5-6.5z"
+                  data-name="Right" />
+              </svg>
+            </div><a href="/about">About</a>
+          </li>
+          <li style="display: flex; align-items: center; justify-content: center; gap: 3px;">
+            <div class="svg-arrow" style="width: 7px;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
+                <path style="fill:#232326"
+                  d="m17.5 5.999-.707.707 5.293 5.293H1v1h21.086l-5.294 5.295.707.707L24 12.499l-6.5-6.5z"
+                  data-name="Right" />
+              </svg>
+            </div><a href="/contact">Contact</a>
+          </li>
+          <li style="display: flex; align-items: center; justify-content: center; gap: 3px;">
+            <div class="svg-arrow" style="width: 7px;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
+                <path style="fill:#232326"
+                  d="m17.5 5.999-.707.707 5.293 5.293H1v1h21.086l-5.294 5.295.707.707L24 12.499l-6.5-6.5z"
+                  data-name="Right" />
+              </svg>
+            </div><a href="/books">Books</a>
+          </li>
+          <li style="display: flex; align-items: center; justify-content: center; gap: 3px;">
+            <div class="svg-arrow" style="width: 7px;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
+                <path style="fill:#232326"
+                  d="m17.5 5.999-.707.707 5.293 5.293H1v1h21.086l-5.294 5.295.707.707L24 12.499l-6.5-6.5z"
+                  data-name="Right" />
+              </svg>
+            </div><a href="/cart">Cart</a>
+          </li>
+          <li style="display: flex; align-items: center; justify-content: center; gap: 3px;">
+            <div class="svg-arrow" style="width: 7px;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
+                <path style="fill:#232326"
+                  d="m17.5 5.999-.707.707 5.293 5.293H1v1h21.086l-5.294 5.295.707.707L24 12.499l-6.5-6.5z"
+                  data-name="Right" />
+              </svg>
+            </div><a href="/checkout">Checkout</a>
+          </li>
           <% if (!user) { %>
-              <li><a href="/login">Login</a></li>
-              <li><a href="/register">Register</a></li>
-          <% } else { %>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Register</a></li>
+            <% } else { %>
               <li><a href="/logout">Logout</a></li>
-          <% } %>
-      </ul>
+              <% } %>
+        </ul>
+      </div>
     </nav>
     <div style="width: 100%; display: flex; justify-content: end;">
+      
       <select id="theme-select">
         <option value="light">Light</option>
         <option value="dark">Dark</option>
@@ -40,6 +93,14 @@
       const theme = e.target.value;
       document.body.className = theme;
       localStorage.setItem('theme', theme);
+    });
+
+    // Hamburger menu functionality
+    const menu = document.querySelector('.nav .menu');
+    const navList = document.querySelector('.header-nav ul');
+
+    menu.addEventListener('click', () => {
+      navList.classList.toggle('show');
     });
   });
 </script>

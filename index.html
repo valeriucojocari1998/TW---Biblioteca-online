@@ -89,7 +89,7 @@
       color: #fff;
       text-align: center;
       padding: 10px;
-      position: fixed;
+      position: static;
       bottom: 0;
       width: 100%;
     }
@@ -143,6 +143,51 @@
         margin-bottom: 100px !important;
       }
     }
+
+    .math-container {
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 20px;
+      margin: 20px;
+      text-align: center;
+    }
+
+    math {
+      display: block;
+      font-size: 1.5em;
+    }
+
+    mi {
+      color: #0077cc;
+    }
+
+    mo {
+      color: #9933ff;
+    }
+
+    mn {
+      color: #ff9933;
+    }
+
+    mfrac {
+      display: inline-block;
+      vertical-align: middle;
+      padding: 0 5px;
+    }
+
+    mfrac > * {
+      display: block;
+    }
+
+    mrow > * + * {
+      margin-left: 0.1em;
+    }
+
+    li:nth-child(1) {
+      color: red
+    }
   </style>
   <script>
     function toggleMenu() {
@@ -175,7 +220,21 @@
   <main class="main-content" >
     <div class="section section1">
       <h2>Home</h2>
-      <p>Welcome to the online bookstore!</p>
+      <div class="math-container">
+        <h2>Styled MathML Formula</h2>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+          <mrow>
+            <mi>E</mi>
+            <mo>=</mo>
+            <mi>m</mi>
+            <mo>&#8290;</mo>
+            <msup>
+              <mi>c</mi>
+              <mn>2</mn>
+            </msup>
+          </mrow>
+        </math>
+      </div>
     </div>
     <div class="section section2">
       <h2>Table</h2>
@@ -205,6 +264,13 @@
       <h2>Miscellaneous</h2>
       <p>Miscellaneous content goes here.</p>
     </div>
+
+    <picture>
+      <source media="(max-width: 599px)" srcset="resources/image-small.jpg">
+      <source media="(min-width: 600px) and (max-width: 1199px)" srcset="resources/image-medium.jpg">
+      <source media="(min-width: 1200px)" srcset="resources/image-large.jpg">
+      <img src="fallback.jpg" alt="A descriptive alt text">
+    </picture>
   </main>
   <footer>
     <address>

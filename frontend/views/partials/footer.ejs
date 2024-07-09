@@ -1,9 +1,84 @@
-<footer>
-  <address style="color: white">
-    <p>Phone: <a href="tel:+123456789">+123456789</a></p>
-    <p>Address: <a href="https://maps.google.com/?q=Facultatea de Matematica si Informatica" target="_blank">Facultatea de Matematica si Informatica</a></p>
-    <p>Email: <a href="mailto:info@example.com">info@example.com</a></p>
-    <p>Chat: <a href="skype:info?chat">Skype</a> / <a href="https://wa.me/123456789">WhatsApp</a></p>
-  </address>
-  <small>&copy; 2024. Date Created: <time datetime="2024-07-09">July 9, 2024</time></small>
+<footer class="footer">
+  <div class="footer-content">
+    <p class="banner">Acesta este un proiect școlar!</p>
+  </div>
+  <div class="watermark footer-website">
+    <div>Cojocari</div>
+    <div>Valeriu</div>
+  </div>
+  
 </footer>
+
+<style>
+  @media print {
+    .banner {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 50%;
+      border: 3px double black;
+      padding: 10px;
+      box-sizing: border-box;
+      font-size: 14px;
+    }
+
+    img, video, iframe, .hide-on-print {
+      display: none !important;
+    }
+
+    .grid {
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    h1 {
+      text-align: center;
+      page-break-after: always;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      page-break-after: always;
+    }
+
+    nav ul li {
+      margin: 5px 0;
+    }
+
+    nav ul ul {
+      list-style: none;
+      padding-left: 20px;
+    }
+
+    .watermark {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 60%;
+      height: 10%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      font-size: 36px;
+      color: rgba(0, 0, 0, 0.3);
+    }
+
+    @page {
+      margin: 2cm 1cm;
+    }
+
+    @page :left {
+      margin-left: 2cm;
+      margin-right: 1cm;
+    }
+
+    @page :right {
+      margin-right: 2cm;
+      margin-left: 1cm;
+    }
+  }
+</style>

@@ -1,18 +1,40 @@
-/* styles.scss */
+/* Define color variables */
+/* Main blue color */
+/* Orange */
+/* Light Blue */
+/* Dark Blue */
+/* Purple */
+/* Usage of variables */
 body {
   font-family: Arial, sans-serif;
   background-color: #f0f0f0;
   color: #333;
 }
 
+body::before {
+  content: "Valeriu Cojocari";
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.3);
+  text-align: center;
+  z-index: -1;
+}
+
 .header {
   background-color: #00aaff;
   padding: 20px;
   text-align: center;
+  transition: box-shadow 0.3s ease-in-out;
+}
+.header:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .header-title {
-  color: #fff;
+  color: #000000;
   font-size: 24px;
   margin: 0;
 }
@@ -26,10 +48,13 @@ body {
   display: inline;
   margin-right: 10px;
 }
-
 .header-nav ul li a {
-  color: #fff;
+  color: #000000;
   text-decoration: none;
+  transition: box-shadow 1s ease-in-out;
+}
+.header-nav ul li a:hover {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
 }
 
 .main-content {
@@ -43,7 +68,7 @@ body {
 .checkout-section,
 .login-section,
 .register-section {
-  background-color: #fff;
+  background-color: #ffffff;
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 5px;
@@ -55,8 +80,8 @@ h2 {
 }
 
 footer {
-  background-color: #333;
-  color: #fff;
+  background-color: #333333;
+  color: #000000;
   text-align: center;
   padding: 10px;
   position: static;
@@ -71,11 +96,18 @@ footer {
 .nav .menu {
   cursor: pointer;
   background-color: #00aaff;
-  color: #fff;
+  color: #000000;
   padding: 10px;
   border-radius: 5px;
   text-align: center;
   width: 100px;
+  display: none; /* Hide by default */
+}
+.nav .svg-arrow {
+  display: none;
+}
+.nav ul {
+  display: flex;
 }
 .nav .dropdown {
   margin: 0px;
@@ -94,14 +126,15 @@ footer {
   margin: 5px 0;
 }
 .nav .dropdown li a {
-  color: #fff;
+  color: #000000;
   text-decoration: none;
   display: block;
   padding: 5px;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, box-shadow 0.3s ease-in-out;
 }
 .nav .dropdown li a:hover {
-  background-color: #0077cc;
+  background-color: #005599;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .nav-wrapper {
@@ -115,7 +148,7 @@ footer {
 /* Duotone Effect */
 .duotone {
   background: linear-gradient(to right, #00aaff, #ffaa00);
-  color: #fff;
+  color: #000000;
   padding: 20px;
   border-radius: 5px;
 }
@@ -144,7 +177,7 @@ footer {
 /* Selection Effect */
 ::selection {
   background: #00aaff;
-  color: #fff;
+  color: #000000;
 }
 
 /* Scrolling Text */
@@ -167,6 +200,14 @@ footer {
   animation: changeBackground 10s infinite;
 }
 
+@keyframes changeBackground {
+  0%, 100% {
+    background-color: #00aaff;
+  }
+  50% {
+    background-color: #ffaa00;
+  }
+}
 /* Responsive Table */
 .responsive-table table {
   width: 100%;
@@ -243,8 +284,68 @@ body.dark {
   background-color: #333333;
   color: #ffffff;
 }
+body.dark .card {
+  color: #000000;
+}
 
 body.blue {
   background-color: #e0f7fa;
   color: #01579b;
+}
+
+/* Card styles */
+.card {
+  border: 1px solid #ccc;
+  background-color: #ffffff;
+  width: fit-content;
+  min-width: 200px;
+  height: fit-content;
+  min-height: 200px;
+  padding: 10px;
+  margin: 0 10px 10px 0;
+  border-radius: 5px;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .header-nav ul {
+    display: none;
+  }
+  .nav .menu {
+    display: block;
+  }
+}
+@media (max-width: 768px) {
+  .header-nav ul.show {
+    display: block;
+    position: absolute;
+    top: 60px;
+    background-color: #00aaff;
+    width: 100%;
+    text-align: left;
+    padding: 10px 0;
+  }
+  .header-nav ul.show li {
+    display: block;
+    margin: 10px 0;
+  }
+  .header-nav ul.show li a {
+    display: block;
+    padding: 10px;
+  }
+  .header-nav ul.show li:hover .svg-arrow {
+    display: block;
+  }
+}
+iframe {
+  text-decoration: none;
+  color: inherit;
+}
+
+.dropdown-menu-1 {
+  display: none;
+}
+
+.dropdown-header1:hover .dropdown-menu-1 {
+  display: flex;
 }
